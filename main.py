@@ -14,7 +14,7 @@ def info(message):
 @bot.message_handler(commands=['mark'])
 def info(message):
     type = types.InlineKeyboardMarkup()
-    type.add(types.InlineKeyboardButton('Фото', photo_mark()))
+    type.add(types.InlineKeyboardButton('Фото'))
     bot.send_message(message.chat.id, 'Выбери что надо оценить',reply_markup=type)
 
 
@@ -29,7 +29,7 @@ def text(message):
 
 bot.polling(none_stop=True)
 
-
+@bot.message_handler()
 def photo_mark(message):
     x = random.randint(0,5)
     if(x==0): bot.send_message(message.chat.id, 'Уфф, какой')
